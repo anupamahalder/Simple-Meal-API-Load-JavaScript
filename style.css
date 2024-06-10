@@ -21,7 +21,7 @@
 }
 .meal-detail-container{
     min-height: 200px;
-    max-height: 600px;
+    max-height: 800px;
 }
 .meal-card{
     width: 200px;
@@ -40,4 +40,22 @@
 }
 .meal-img{
     width: 200px;
+    object-fit: cover;
+}
+.meal-detail-img{
+    width: 300px;
+    object-fit: cover;
+    height: 200px;
+}
+.meal-detail-card{
+    min-height: 200px;
+    max-height: 800px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 4px 4px 8px gray;
+    padding: 10px;
+}
+.meal-detail-container{
+    display: flex;
+    justify-content: center;
 }

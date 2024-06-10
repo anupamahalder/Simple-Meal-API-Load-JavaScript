@@ -25,10 +25,45 @@ const handleSearch = ()=>{
                 div.classList.add("meal-card");
                 div.innerHTML = `
                 <img class="meal-img" src="${meal.strMealThumb}"/>
-                <p><b>${meal.strMeal}</b></p>
+                <p><b>${meal.strMeal.slice(0,40)}</b></p>
                 `
+                // Attach event listener to call handleMealDetail function
+                div.addEventListener('click', () => handleMealDetail(meal.idMeal));
                 mealListContainer.appendChild(div);
             })
         }
+    })
+}
+const handleMealDetail = (id) =>{
+    const mealDetail = document.getElementById("meal-detail-container");
+    // clear the div 
+    document.getElementById("meal-detail-container").innerHTML = "";
+    fetch(`https:\\www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+    .then(res => res.json())
+    .then(meal => {
+        meal = meal.meals[0];
+        console.log(meal);
+        const ingredients = [];
+        for (let i = 1; i <= 20; i++) {
+            const ingredient = meal[`strIngredient${i}`];
+            const measure = meal[`strMeasure${i}`];
+            if (ingredient && measure) {
+            ingredients.push(`${measure.trim()} ${ingredient}`);
+            } else if (ingredient) {
+            ingredients.push(ingredient);
+            }
+        }
+        // create a div 
+        const div = document.createElement("div");
+        div.classList = "meal-detail-card";
+        div.innerHTML = `
+        <img class="meal-detail-img" src="${meal.strMealThumb}"/>
+        <h3>${meal.strMeal}</h3>
+        <h5>Ingredients</h5>
+        <ul>
+            ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+        </ul>
+        `
+        mealDetail.appendChild(div);
     })
 }
