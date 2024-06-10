@@ -1,0 +1,43 @@
+.input-field{
+    padding: 10px;
+    width: 500px;
+    border: none;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 5px;
+    margin-left: 300px;
+}
+.search-btn{
+    padding: 10px;
+    border: none;
+    box-shadow: 4px 4px 8px gray;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.meal-search-container{
+    margin: 20px auto;
+}
+.meal-detail-container{
+    min-height: 200px;
+    max-height: 600px;
+}
+.meal-card{
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 8px;
+    margin: 10px;
+}
+.meal-list-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.meal-img{
+    width: 200px;
+}
