@@ -11,7 +11,7 @@
 
     </div>
     <div class="meal-search-container">
-        <input class="input-field" id="search-input" type="text" placeholder="Search your meal...">
+        <input class="input-field" id="search-input" type="text" onkeydown="event.key === 'Enter' && handleSearch()" placeholder="Search your meal...">
         <button onclick="handleSearch()" class="search-btn">Search</button>
     </div>
     <div class="meal-list-container" id="meal-list-container">
