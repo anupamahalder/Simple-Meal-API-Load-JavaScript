@@ -3,6 +3,9 @@ const handleSearch = ()=>{
     if(!searchValue) return;
     console.log(searchValue);
     document.getElementById("search-input").value = "";
+    // Clear meal-list-container's inner HTML
+    document.getElementById("meal-list-container").innerHTML = "";
+
     // fetch all matched data 
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`)
     .then(res => res.json())
